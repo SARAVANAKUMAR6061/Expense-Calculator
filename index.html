@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Expense Tracker&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { margin: 0; padding: 24px; background: #f7f7f9; color: #111; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap { max-width: 900px; margin: 0 auto; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { margin: 0 0 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background: #fff; padding: 16px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label { font-size: 12px; color: #444; display:block; margin-bottom: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, select, button { width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.actions { display: flex; gap: 10px; margin-top: 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.primary { background: #111; color: #fff; border: none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ghost { background: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table { width: 100%; border-collapse: collapse; margin-top: 16px; background: #fff; border-radius: 14px; overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tfoot td { font-weight: 700; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.total { display:flex; justify-content: space-between; align-items: center; margin-top: 10px; font-weight: 700; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted { color: #666; font-size: 13px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 800px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.row { grid-template-columns: 1fr 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 480px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.row { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Expense Tracker&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card" aria-label="Add expense"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label for="date"&gt;Date&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input id="date" type="date"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label for="category"&gt;Category&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;select id="category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Food&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Travel&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Shopping&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Bills&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;option&gt;Other&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label for="desc"&gt;Description&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input id="desc" type="text" placeholder="e.g., Lunch at cafe"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label for="amount"&gt;Amount&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input id="amount" type="number" step="0.01" min="0" placeholder="0.00"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="primary" id="addBtn"&gt;Add Expense&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="ghost" id="clearAllBtn" title="Clears all saved expenses"&gt;Clear All&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="ghost" id="exportBtn" title="Download CSV of expenses"&gt;Export CSV&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="muted"&gt;Data is stored locally in your browser (localStorage).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;table id="table" aria-label="Expenses table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th style="width: 120px;"&gt;Date&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th style="width: 160px;"&gt;Category&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th&gt;Description&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th style="width: 140px;"&gt;Amount&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th style="width: 100px;"&gt;Actions&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tbody id="tbody"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tfoot&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td colspan="3"&gt;Total&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td id="totalCell"&gt;0.00&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tfoot&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const LS_KEY = "expenses_v1";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function todayISO() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const d = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const m = String(d.getMonth()+1).padStart(2,"0");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const day = String(d.getDate()).padStart(2,"0");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return `${d.getFullYear()}-${m}-${day}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function readExpenses() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>catch { return []; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function saveExpenses(list) { localStorage.setItem(LS_KEY, JSON.stringify(list)); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function formatMoney(n) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const num = Number(n) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return num.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function render() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const tbody = document.getElementById("tbody");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const totalCell = document.getElementById("totalCell");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const list = readExpenses();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>tbody.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let total = 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list.forEach((e, idx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>total += Number(e.amount) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tr = document.createElement("tr");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tr.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;${e.date}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;${e.category}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;${e.desc || ""}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;${formatMoney(e.amount)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button data-del="${idx}" title="Delete"&gt;Delete&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody.appendChild(tr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>totalCell.textContent = formatMoney(total);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Wire delete buttons</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tbody.querySelectorAll("button[data-del]").forEach(btn =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const idx = Number(btn.getAttribute("data-del"));</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const list = readExpenses();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>list.splice(idx, 1);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>saveExpenses(list);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addExpense() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const date = document.getElementById("date").value || todayISO();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const category = document.getElementById("category").value.trim() || "Other";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const desc = document.getElementById("desc").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const amount = document.getElementById("amount").value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!amount || Number(amount) &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Please enter a valid amount.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const list = readExpenses();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list.push({ date, category, desc, amount: Number(amount) });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>saveExpenses(list);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("desc").value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("amount").value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function clearAll() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (confirm("This will remove all expenses saved in your browser. Continue?")) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>localStorage.removeItem(LS_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exportCSV() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const rows = readExpenses();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!rows.length) { alert("No data to export."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const header = ["Date","Category","Description","Amount"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const csv = [header.join(",")].concat(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>rows.map(r =&gt; [r.date, r.category, (r.desc || "").replace(/"/g,'""'), r.amount].map(x =&gt; `"${x}"`).join(","))</p>
+<p class="p1"><span class="Apple-converted-space">      </span>).join("\n");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const a = document.createElement("a");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.href = url;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.download = `expenses_${new Date().toISOString().slice(0,10)}.csv`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.click();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>URL.revokeObjectURL(url);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Init</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("date").value = todayISO();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("addBtn").addEventListener("click", addExpense);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("clearAllBtn").addEventListener("click", clearAll);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("exportBtn").addEventListener("click", exportCSV);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
